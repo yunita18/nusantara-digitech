@@ -4,21 +4,193 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Nusantara Digitech</title>
-  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * { box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: radial-gradient(circle at top, #1f4d57, #0b1f26);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+    }
+
+    .card {
+      width: 360px;
+      background: rgba(255,255,255,0.06);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      padding: 26px 22px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+      animation: fadeUp 0.8s ease;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(25px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    h1 {
+      margin: 0;
+      text-align: center;
+      font-size: 22px;
+    }
+
+    .subtitle {
+      text-align: center;
+      font-size: 13px;
+      opacity: 0.85;
+      margin-bottom: 24px;
+    }
+
+    .btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 14px;
+      margin-bottom: 14px;
+      border-radius: 14px;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      text-decoration: none;
+      color: #fff;
+      transition: all 0.25s ease;
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+    }
+
+    .primary {
+      background: linear-gradient(135deg, #00e5ff, #00bcd4);
+      color: #00343c;
+      font-weight: 600;
+    }
+
+    .secondary {
+      background: rgba(255,255,255,0.12);
+    }
+
+    .section {
+      display: none;
+      animation: fadeUp 0.6s ease;
+    }
+
+    .section h3 {
+      margin-top: 18px;
+      font-size: 15px;
+    }
+
+    .section p {
+      font-size: 13px;
+      opacity: 0.85;
+      line-height: 1.6;
+    }
+
+    .back {
+      text-align: center;
+      margin-top: 18px;
+      font-size: 13px;
+      cursor: pointer;
+      opacity: 0.8;
+    }
+
+    .back:hover {
+      text-decoration: underline;
+    }
+  </style>
 </head>
+
 <body>
-  <div class="container">
+
+  <!-- HOME -->
+  <div class="card" id="home">
     <h1>Nusantara Digitech</h1>
-    <p>Creative Technology • Game • System Development</p>
+    <div class="subtitle">Creative Technology • Game • System Development</div>
 
-    <a href="#" class="btn">🚀 Website Portofolio</a>
-    <a href="#" class="btn">🎮 Demo Game Project</a>
-    <a href="#" class="btn">💻 GitHub</a>
-    <a href="#" class="btn">📄 Project Sistem</a>
-    <a href="https://wa.me/62XXXXXXXXXX" class="btn">📩 WhatsApp</a>
-    <a href="mailto:nusantaradigitech@gmail.com" class="btn">📧 Email</a>
+    <div class="btn primary" onclick="showSection('portfolio')">
+      🚀 Website Portofolio
+    </div>
 
-    <footer>© 2025 Nusantara Digitech</footer>
+    <a class="btn secondary"
+       href="https://ghostwhite-cassowary-787598.hostingersite.com/puzzle-game/"
+       target="_blank">
+      🎮 Demo Game Project
+    </a>
+
+    <div class="btn secondary" onclick="showSection('projects')">
+      📄 Project Sistem
+    </div>
+
+    <!-- GANTI NOMOR WHATSAPP -->
+    <a class="btn secondary"
+       href="https://wa.me/628123456789"
+       target="_blank">
+      📱 WhatsApp
+    </a>
+
+    <a class="btn secondary"
+       href="mailto:email@nusantaradigitech.com">
+      ✉️ Email
+    </a>
   </div>
+
+  <!-- PORTFOLIO -->
+  <div class="card section" id="portfolio">
+    <h1>Portofolio</h1>
+
+    <h3>🌐 Website & Sistem</h3>
+    <p>
+      Pengembangan website company profile, sistem informasi UMKM,
+      dan dashboard manajemen berbasis web yang modern dan responsif.
+    </p>
+
+    <h3>🎮 Game Interaktif</h3>
+    <p>
+      Pembuatan game edukasi dan casual berbasis web
+      untuk pembelajaran dan hiburan.
+    </p>
+
+    <div class="back" onclick="goHome()">← Kembali ke Menu</div>
+  </div>
+
+  <!-- PROJECTS -->
+  <div class="card section" id="projects">
+    <h1>Projects</h1>
+
+    <h3>📊 Sistem Informasi</h3>
+    <p>
+      Sistem akademik, sistem UMKM, dan aplikasi manajemen berbasis web.
+    </p>
+
+    <h3>🧩 Game Edukasi</h3>
+    <p>
+      Game puzzle interaktif berbasis HTML, CSS, dan JavaScript.
+    </p>
+
+    <div class="back" onclick="goHome()">← Kembali ke Menu</div>
+  </div>
+
+  <script>
+    function showSection(id) {
+      document.getElementById('home').style.display = 'none';
+      document.getElementById('portfolio').style.display = 'none';
+      document.getElementById('projects').style.display = 'none';
+      document.getElementById(id).style.display = 'block';
+    }
+
+    function goHome() {
+      document.getElementById('portfolio').style.display = 'none';
+      document.getElementById('projects').style.display = 'none';
+      document.getElementById('home').style.display = 'block';
+    }
+  </script>
+
 </body>
 </html>
