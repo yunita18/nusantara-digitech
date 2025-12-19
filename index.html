@@ -1,196 +1,168 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nusantara Digitech</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nusantara Digitech</title>
 
-  <style>
-    * { box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-    body {
-      margin: 0;
-      min-height: 100vh;
-      background: radial-gradient(circle at top, #1f4d57, #0b1f26);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: #fff;
-    }
+<style>
+*{
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
 
-    .card {
-      width: 360px;
-      background: rgba(255,255,255,0.06);
-      backdrop-filter: blur(10px);
-      border-radius: 20px;
-      padding: 26px 22px;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-      animation: fadeUp 0.8s ease;
-    }
+body{
+  margin:0;
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background: linear-gradient(270deg,#0f2027,#203a43,#2c5364);
+  background-size: 600% 600%;
+  animation: bgMove 15s ease infinite;
+  color:#fff;
+}
 
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(25px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+@keyframes bgMove{
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
 
-    h1 {
-      margin: 0;
-      text-align: center;
-      font-size: 22px;
-    }
+/* CARD */
+.card{
+  width:360px;
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(12px);
+  border-radius:22px;
+  padding:26px 22px;
+  box-shadow:0 25px 50px rgba(0,0,0,.45);
+  animation: fadeUp .8s ease;
+  transition: background .6s ease;
+}
 
-    .subtitle {
-      text-align: center;
-      font-size: 13px;
-      opacity: 0.85;
-      margin-bottom: 24px;
-    }
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(30px)}
+  to{opacity:1;transform:translateY(0)}
+}
 
-    .btn {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      padding: 14px;
-      margin-bottom: 14px;
-      border-radius: 14px;
-      font-size: 14px;
-      font-weight: 500;
-      cursor: pointer;
-      text-decoration: none;
-      color: #fff;
-      transition: all 0.25s ease;
-    }
+h1{
+  margin:0;
+  text-align:center;
+  font-size:22px;
+}
 
-    .btn:hover {
-      transform: scale(1.05);
-    }
+.subtitle{
+  text-align:center;
+  font-size:13px;
+  opacity:.85;
+  margin-bottom:22px;
+}
 
-    .primary {
-      background: linear-gradient(135deg, #00e5ff, #00bcd4);
-      color: #00343c;
-      font-weight: 600;
-    }
+/* BUTTON */
+.btn{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:10px;
+  padding:14px;
+  margin-bottom:14px;
+  border-radius:16px;
+  text-decoration:none;
+  color:#fff;
+  font-size:14px;
+  cursor:pointer;
+  background: rgba(255,255,255,.12);
+  transition: all .3s ease;
+}
 
-    .secondary {
-      background: rgba(255,255,255,0.12);
-    }
+.btn:hover{
+  transform: translateY(-3px) scale(1.04);
+  background: rgba(255,255,255,.25);
+}
 
-    .section {
-      display: none;
-      animation: fadeUp 0.6s ease;
-    }
+/* SECTION */
+.section{display:none}
 
-    .section h3 {
-      margin-top: 18px;
-      font-size: 15px;
-    }
+/* THEME COLORS */
+.theme-home{background:rgba(255,255,255,.08)}
+.theme-portfolio{background:linear-gradient(135deg,#00e5ff55,#0097a755)}
+.theme-projects{background:linear-gradient(135deg,#ff980055,#ff572255)}
 
-    .section p {
-      font-size: 13px;
-      opacity: 0.85;
-      line-height: 1.6;
-    }
+.back{
+  text-align:center;
+  margin-top:18px;
+  font-size:13px;
+  opacity:.8;
+  cursor:pointer;
+}
+.back:hover{text-decoration:underline}
 
-    .back {
-      text-align: center;
-      margin-top: 18px;
-      font-size: 13px;
-      cursor: pointer;
-      opacity: 0.8;
-    }
-
-    .back:hover {
-      text-decoration: underline;
-    }
-  </style>
+footer{
+  text-align:center;
+  font-size:12px;
+  opacity:.7;
+  margin-top:12px;
+}
+</style>
 </head>
 
 <body>
 
-  <!-- HOME -->
-  <div class="card" id="home">
-    <h1>Nusantara Digitech</h1>
-    <div class="subtitle">Creative Technology • Game • System Development</div>
+<!-- HOME -->
+<div class="card theme-home" id="home">
+  <h1>Nusantara Digitech</h1>
+  <div class="subtitle">Creative Technology • Game • System Development</div>
 
-    <div class="btn primary" onclick="showSection('portfolio')">
-      🚀 Website Portofolio
-    </div>
+  <div class="btn" onclick="showSection('portfolio','theme-portfolio')">🚀 Website Portofolio</div>
+  <a class="btn" href="https://ghostwhite-cassowary-787598.hostingersite.com/puzzle-game/" target="_blank">🎮 Demo Game Project</a>
+  <a class="btn" href="https://github.com/yunita18" target="_blank">💻 GitHub</a>
+  <div class="btn" onclick="showSection('projects','theme-projects')">📄 Project Sistem</div>
+  <a class="btn" href="https://wa.me/628123456789" target="_blank">📱 WhatsApp</a>
+  <a class="btn" href="mailto:email@nusantaradigitech.com">✉️ Email</a>
 
-    <a class="btn secondary"
-       href="https://ghostwhite-cassowary-787598.hostingersite.com/puzzle-game/"
-       target="_blank">
-      🎮 Demo Game Project
-    </a>
+  <footer>© 2025 Nusantara Digitech</footer>
+</div>
 
-    <div class="btn secondary" onclick="showSection('projects')">
-      📄 Project Sistem
-    </div>
+<!-- PORTFOLIO -->
+<div class="card section theme-portfolio" id="portfolio">
+  <h1>Portofolio</h1>
 
-    <!-- GANTI NOMOR WHATSAPP -->
-    <a class="btn secondary"
-       href="https://wa.me/628123456789"
-       target="_blank">
-      📱 WhatsApp
-    </a>
+  <p style="font-size:13px;opacity:.85;line-height:1.6">
+    Pengembangan website company profile, sistem informasi UMKM,
+    dashboard manajemen, serta game edukasi berbasis web modern.
+  </p>
 
-    <a class="btn secondary"
-       href="mailto:email@nusantaradigitech.com">
-      ✉️ Email
-    </a>
-  </div>
+  <div class="back" onclick="goHome()">← Kembali</div>
+</div>
 
-  <!-- PORTFOLIO -->
-  <div class="card section" id="portfolio">
-    <h1>Portofolio</h1>
+<!-- PROJECTS -->
+<div class="card section theme-projects" id="projects">
+  <h1>Projects</h1>
 
-    <h3>🌐 Website & Sistem</h3>
-    <p>
-      Pengembangan website company profile, sistem informasi UMKM,
-      dan dashboard manajemen berbasis web yang modern dan responsif.
-    </p>
+  <p style="font-size:13px;opacity:.85;line-height:1.6">
+    Sistem informasi akademik, UMKM, dan game interaktif berbasis HTML,
+    CSS, dan JavaScript.
+  </p>
 
-    <h3>🎮 Game Interaktif</h3>
-    <p>
-      Pembuatan game edukasi dan casual berbasis web
-      untuk pembelajaran dan hiburan.
-    </p>
+  <div class="back" onclick="goHome()">← Kembali</div>
+</div>
 
-    <div class="back" onclick="goHome()">← Kembali ke Menu</div>
-  </div>
+<script>
+function showSection(id, theme){
+  document.querySelectorAll('.card').forEach(c=>c.style.display='none');
+  const el=document.getElementById(id);
+  el.style.display='block';
+  el.className='card section '+theme;
+}
 
-  <!-- PROJECTS -->
-  <div class="card section" id="projects">
-    <h1>Projects</h1>
-
-    <h3>📊 Sistem Informasi</h3>
-    <p>
-      Sistem akademik, sistem UMKM, dan aplikasi manajemen berbasis web.
-    </p>
-
-    <h3>🧩 Game Edukasi</h3>
-    <p>
-      Game puzzle interaktif berbasis HTML, CSS, dan JavaScript.
-    </p>
-
-    <div class="back" onclick="goHome()">← Kembali ke Menu</div>
-  </div>
-
-  <script>
-    function showSection(id) {
-      document.getElementById('home').style.display = 'none';
-      document.getElementById('portfolio').style.display = 'none';
-      document.getElementById('projects').style.display = 'none';
-      document.getElementById(id).style.display = 'block';
-    }
-
-    function goHome() {
-      document.getElementById('portfolio').style.display = 'none';
-      document.getElementById('projects').style.display = 'none';
-      document.getElementById('home').style.display = 'block';
-    }
-  </script>
+function goHome(){
+  document.querySelectorAll('.card').forEach(c=>c.style.display='none');
+  document.getElementById('home').style.display='block';
+}
+</script>
 
 </body>
 </html>
